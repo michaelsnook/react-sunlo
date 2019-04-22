@@ -1,8 +1,8 @@
 import React from 'react';
 
 const PostTease = ({ title, content, image, created_at }) => (
-  <div className="row border-bottom p-3 mb-3">
-    <div className="col-12 col-sm-6 col-md-4 mb-1">
+  <div className="row border-bottom p-3">
+    <div className="col-12 col-sm-6 col-md-4 mb-3 mb-sm-0">
       { image?
         <img className="img-fluid" src={image[0].url} alt="Movie poster" />
       :
