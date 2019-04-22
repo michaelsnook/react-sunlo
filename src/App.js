@@ -25,9 +25,9 @@ class App extends Component {
 
   render() {
     return (
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col">
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col">
             <div className="card-deck">
               {this.state.movies.map(movie => <MovieCard {...movie.fields} /> )}
             </div>
