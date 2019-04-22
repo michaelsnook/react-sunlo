@@ -1,13 +1,13 @@
 import React from 'react';
 
-const MovieCard = () => (
+const MovieCard = ({ title, year, description, imageURL }) => (
   <div className="card">
-    <img className="card-img-top" src="https://via.placeholder.com/362x200" alt="Card cap" />
+    <img className="card-img-top" src={imageURL[0].url} alt="Movie poster" />
     <div className="card-body">
-      <h5 className="card-title">Card title</h5>
-      <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <h5 className="card-title">{title}</h5>
+      <p className="card-text">{description}</p>
       <p className="card-text">
-        <small className="text-muted">Last updated 3 mins ago</small>
+        <small className="text-muted">{year}</small>
       </p>
     </div>
   </div>
