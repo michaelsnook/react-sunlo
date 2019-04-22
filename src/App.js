@@ -27,11 +27,9 @@ class App extends Component {
     return (
       <div className="container mt-5">
         <div className="row">
-          <div className="col">
-            <div className="card-deck">
-              {this.state.movies.map(movie => <MovieCard {...movie.fields} /> )}
-            </div>
-          </div>
+
+            {this.state.movies.map(movie => <MovieCard {...movie.fields} /> )}
+
         </div>
       </div>
     );
