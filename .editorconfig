@@ -1,0 +1,16 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Ignore paths
+[/node_modules/**]
+charset = none
+indent_style = none
+indent_size = none
+insert_final_newline = none
+trim_trailing_whitespace = none
