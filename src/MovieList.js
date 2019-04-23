@@ -11,7 +11,8 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    fetch(Settings.API_URL + 'Favorites?api_key=' + Settings.API_KEY)
+    fetch(Settings.API_URL + 'Favorites?api_key=' + Settings.API_KEY
+        + '&sort%5B0%5D%5Bfield%5D=year&sort%5B0%5D%5Bdirection%5D=desc')
       .then((resp) => resp.json())
       .then(data => {
         this.setState({ movies: data.records })
