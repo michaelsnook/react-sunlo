@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Settings from './Settings';
+import Settings from '../Settings';
 
 class CardList extends Component {
   constructor(props) {
@@ -29,13 +29,14 @@ class CardList extends Component {
             <div className="card mb-4 shadow-sm">
               <div className="card-body">
                 <p className="card-text">{phrase.fields.text}</p>
+                <p className="card-text text-muted">{phrase.fields.translation_texts}</p>
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="btn-group">
                     <button type="button" className="btn btn-sm btn-outline-secondary">Skip</button>
                     <button type="button" className="btn btn-sm btn-outline-secondary">Learn it!</button>
                     <button type="button" className="btn btn-sm btn-outline-secondary">Learned</button>
                   </div>
-                  <small className="text-muted">{phrase.fields.language}</small>
+                  <small className="text-muted">{phrase.fields.language_name}</small>
                 </div>
               </div>
             </div>

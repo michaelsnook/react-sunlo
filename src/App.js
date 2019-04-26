@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import CardList from './CardList';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Deck from './screens/Deck';
 
 class App extends Component {
   render() {
     return (
       <Fragment>
         <Navbar />
-        <CardList />
+        <Deck language='Hindi' />
         <Footer />
       </Fragment>
     );
