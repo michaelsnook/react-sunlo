@@ -16,11 +16,10 @@ class Navbar extends Component {
     e.preventDefault();
   }
 
-  closeNav = (e) => {
+  closeNav = () => {
     this.setState(state => ({
       open: false
     }));
-    e.preventDefault();
   }
 
   render() {
