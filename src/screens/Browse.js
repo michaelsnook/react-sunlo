@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Settings from '../Settings';
 
-class Deck extends Component {
+class Browse extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,7 +11,7 @@ class Deck extends Component {
 
   componentDidMount() {
     fetch(Settings.API_URL + 'Phrases?api_key=' + Settings.API_KEY
-        + '&view=deck_' + this.props.language.toLowerCase())
+        +'&view=browse_' + this.props.language.toLowerCase())
       .then((resp) => resp.json())
       .then(data => {
         this.setState({ phrases: data.records })
@@ -23,7 +23,7 @@ class Deck extends Component {
   render() {
     return(
       <div className="container py-3">
-        <h2>Your {this.props.language} Deck</h2>
+        <h2>Learn new {this.props.language} phrases</h2>
         <div className="row">
           {this.state.phrases.map(phrase =>
           <div className="col col-md-4" key={phrase.id}>
@@ -48,5 +48,5 @@ class Deck extends Component {
   }
 }
 
-export default Deck;
+export default Browse;
 

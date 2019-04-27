@@ -15,7 +15,10 @@ const Navbar = () => (
               <i className="fas fa-user-circle col-2"></i> Profile
             </Link>
             <Link to={`/deck/Hindi`} className="nav-item nav-link active">
-              <i className="fas fa-database col-2"></i> Hindi
+              <i className="fas fa-database col-2"></i> Your Hindi deck
+            </Link>
+            <Link to={`/browse/Hindi`} className="nav-item nav-link active">
+              <i className="fas fa-database col-2"></i> Browe Hindi phrases
             </Link>
           </div>
         </div>
