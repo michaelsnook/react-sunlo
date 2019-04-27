@@ -5,9 +5,6 @@
 /.pnp
 .pnp.js
 
-# for dev, since I'm using my API key
-src/Settings.js
-
 # testing
 /coverage
 
