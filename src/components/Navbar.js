@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Link } from 'react-router-dom'
+import { BrowserRouter as Route, Link } from 'react-router-dom'
 
 const Navbar = () => (
   <nav className="bg-dark text-white">
@@ -15,9 +15,6 @@ const Navbar = () => (
             <Link to={`/deck/Hindi`} className="nav-item nav-link active">Hindi</Link>
           </div>
         </div>
-      </nav>
-      <nav className="navbar-nav">
-
       </nav>
     </div>
   </nav>
