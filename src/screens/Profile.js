@@ -22,7 +22,7 @@ class Profile extends Component {
   }
 
   render() {
-    return(
+    return (
       <div className="container p-3">
         <h2>Your profile</h2>
         <div className="row mt-3">

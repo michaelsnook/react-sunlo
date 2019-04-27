@@ -20,7 +20,7 @@ class CardList extends Component {
   }
 
   render() {
-    return(
+    return (
       <div className="container py-5">
         <h2>Cards</h2>
         <div className="row">

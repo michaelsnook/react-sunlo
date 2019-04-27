@@ -21,7 +21,7 @@ class Deck extends Component {
   }
 
   render() {
-    return(
+    return (
       <div className="container py-3">
         <h2>Your {this.props.language} Deck</h2>
         <div className="row">

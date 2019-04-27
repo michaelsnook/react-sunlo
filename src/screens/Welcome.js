@@ -10,7 +10,7 @@ class Welcome extends Component {
   }
 
   render() {
-    return(
+    return (
       <div className="bg-primary w-100 text-light">
         <div className="container py-5">
           <div className="row">

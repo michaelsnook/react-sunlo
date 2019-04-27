@@ -21,7 +21,7 @@ class Browse extends Component {
   }
 
   render() {
-    return(
+    return (
       <div className="container py-3">
         <h2>Learn new {this.props.language} phrases</h2>
         <div className="row">
