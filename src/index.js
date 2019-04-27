@@ -5,7 +5,6 @@ import * as serviceWorker from './serviceWorker';
 
 // import Bootstrap
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 // our own styles
