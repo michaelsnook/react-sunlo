@@ -12,10 +12,10 @@ const Navbar = () => (
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <Link to={`/profile`} className="nav-item nav-link active">
-              <i class="fas fa-user-circle col-2"></i> Profile
+              <i className="fas fa-user-circle col-2"></i> Profile
             </Link>
             <Link to={`/deck/Hindi`} className="nav-item nav-link active">
-              <i class="fas fa-database col-2"></i> Hindi
+              <i className="fas fa-database col-2"></i> Hindi
             </Link>
           </div>
         </div>

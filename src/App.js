@@ -16,7 +16,9 @@ class App extends Component {
         <Navbar />
           <main>
             <Route exact path="/" component={Welcome} />
-            <Route exact path="/profile" component={Profile} uuid="recPcm2lXVMX9GVjF" />
+            <Route exact path="/profile" render={ () => (
+              <Profile uuid="recPcm2lXVMX9GVjF" />
+            )} />
             <Route path="/deck/:language" render={({match}) => (
               <Deck language={match.params.language} />
             )} />

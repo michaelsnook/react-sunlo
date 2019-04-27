@@ -22,7 +22,7 @@ class Deck extends Component {
 
   render() {
     return(
-      <div className="container py-5">
+      <div className="container py-3">
         <h2>Your {this.props.language} Deck</h2>
         <div className="row">
           {this.state.phrases.map(phrase =>
