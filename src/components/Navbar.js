@@ -11,8 +11,12 @@ const Navbar = () => (
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <Link to={`/profile`} className="nav-item nav-link active">Profile</Link>
-            <Link to={`/deck/Hindi`} className="nav-item nav-link active">Hindi</Link>
+            <Link to={`/profile`} className="nav-item nav-link active">
+              <i class="fas fa-user-circle col-2"></i> Profile
+            </Link>
+            <Link to={`/deck/Hindi`} className="nav-item nav-link active">
+              <i class="fas fa-database col-2"></i> Hindi
+            </Link>
           </div>
         </div>
       </nav>
