@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Route, Link } from 'react-router-dom'
+import { BrowserRouter as Route, Link } from 'react-router-dom';
 
 const Navbar = () => (
   <nav className="bg-primary text-white">
