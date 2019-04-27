@@ -37,7 +37,7 @@ class Profile extends Component {
             <p>{this.state.user.languages_spoken}</p>
             <p className="text-muted mb-0">profile picture</p>
             { this.state.user.image_url?
-            <img src={this.state.user.image_url} className="rounded img-thumbnail col-4 px-1" />
+            <img src={this.state.user.image_url} alt="" className="rounded img-thumbnail col-4 px-1" />
             :
             <div className="p-2 rounded col-4 text-center bg-secondary">
               <i className="fas fa-user-circle fa-3x text-white"></i>
