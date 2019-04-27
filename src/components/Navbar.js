@@ -7,12 +7,18 @@ class Navbar extends Component {
     this.state = {
       open: false
     };
-    this.toggleShow = this.toggleShow.bind(this);
   }
 
-  toggleShow(e) {
+  toggleShow = (e) => {
     this.setState(state => ({
       open: !this.state.open
+    }));
+    e.preventDefault();
+  }
+
+  closeNav = (e) => {
+    this.setState(state => ({
+      open: false
     }));
     e.preventDefault();
   }
@@ -35,16 +41,16 @@ class Navbar extends Component {
             </a>
             <div className={this.state.open? '' : 'collapse ' + 'navbar-collapse'} id="navbarNavAltMarkup">
               <div className="navbar-nav">
-                <Link to={`/`} className="nav-item nav-link">
+                <Link onClick={this.closeNav} to={`/`} className="nav-item nav-link">
                   <i className="fas fa-home col-2"></i> Sunlo home
                 </Link>
-                <Link to={`/profile`} className="nav-item nav-link">
+                <Link onClick={this.closeNav} to={`/profile`} className="nav-item nav-link">
                   <i className="fas fa-user-circle col-2"></i> Profile
                 </Link>
-                <Link to={`/deck/Hindi`} className="nav-item nav-link">
+                <Link onClick={this.closeNav} to={`/deck/Hindi`} className="nav-item nav-link">
                   <i className="fas fa-database col-2"></i> Your Hindi deck
                 </Link>
-                <Link to={`/browse/Hindi`} className="nav-item nav-link">
+                <Link onClick={this.closeNav} to={`/browse/Hindi`} className="nav-item nav-link">
                   <i className="fas fa-database col-2"></i> Browe Hindi phrases
                 </Link>
               </div>
