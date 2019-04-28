@@ -8,9 +8,9 @@ class Modal extends Component {
         <div className="modal fade show d-flex" tabIndex="-1" role="dialog" aria-hidden="false">
           <div className="modal-dialog shadow-sm d-flex flex-fill" role="document">
             <div className="modal-content">
-              <div className="modal-body">
-                {this.props.children}
-              </div>
+
+              {this.props.children}
+
               {this.props.close_text &&
               <div className="modal-footer">
                 <Link to={this.props.back_url} role="Button" type="Buton"
