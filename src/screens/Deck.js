@@ -23,14 +23,6 @@ class Deck extends Component {
   }
 
   render() {
-    let badgeClass = function(status) {
-      let res = "badge badge-";
-      if (status === 'active')
-        res += 'success';
-      else
-        res += 'info';
-      return res;
-    }
     return (
       <div className="container p-3">
         <h2>Your {this.props.language} Deck</h2>
@@ -39,7 +31,7 @@ class Deck extends Component {
           <div className="card w-100 shadow-sm mb-3 d-flex justify-content-between" key={phrase.id}>
             <div className="card-body">
               <p className="card-text float-left mb-0">
-                <span className={badgeClass(phrase.fields.status)}>{phrase.fields.status}</span>
+                <span className={`badge badge-${phrase.fields.status === 'active'? 'success':'info'}`}>{phrase.fields.status}</span>
                 <span> {phrase.fields.text}</span>
               </p>
               <div className="btn-group float-right">
