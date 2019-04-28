@@ -15,21 +15,21 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-          <main>
-            <Route exact path="/" component={Welcome} />
-            <Route exact path="/profile" render={ () => (
-              <Profile uuid="recPcm2lXVMX9GVjF" />
-            )} />
-            <Route path="/browse/:language" render={({match}) => (
-              <Browse language={match.params.language} />
-            )} />
-            <Route path="/deck/:language" render={({match}) => (
-              <Deck language={match.params.language} />
-            )} />
-            <Route path={`/deck/:language/card/:uuid`} render={({match}) => (
-              <CardShowModal uuid={match.params.uuid} back_url={"/deck/" + match.params.language} />
-            )} />
-          </main>
+        <main>
+          <Route exact path="/" component={Welcome} />
+          <Route exact path="/profile" render={ () => (
+            <Profile uuid="recPcm2lXVMX9GVjF" />
+          )} />
+          <Route path="/browse/:language" render={({match}) => (
+            <Browse language={match.params.language} />
+          )} />
+          <Route path="/deck/:language" render={({match}) => (
+            <Deck language={match.params.language} />
+          )} />
+          <Route path={`/deck/:language/card/:uuid`} render={({match}) => (
+            <CardShowModal uuid={match.params.uuid} back_url={"/deck/" + match.params.language} />
+          )} />
+        </main>
         <Footer />
       </Router>
     );
