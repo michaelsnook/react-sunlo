@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Welcome from './screens/Welcome';
 import Profile from './screens/Profile';
@@ -8,6 +8,7 @@ import Browse from './screens/Browse';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import CardShowModal from './components/CardShowModal';
 
 class App extends Component {
   render() {
@@ -19,11 +20,14 @@ class App extends Component {
             <Route exact path="/profile" render={ () => (
               <Profile uuid="recPcm2lXVMX9GVjF" />
             )} />
+            <Route path="/browse/:language" render={({match}) => (
+              <Browse language={match.params.language} />
+            )} />
             <Route path="/deck/:language" render={({match}) => (
               <Deck language={match.params.language} />
             )} />
-            <Route path="/browse/:language" render={({match}) => (
-              <Browse language={match.params.language} />
+            <Route path={`/deck/:language/card/:uuid`} render={({match}) => (
+              <CardShowModal uuid={match.params.uuid} back_url={"/deck/" + match.params.language} />
             )} />
           </main>
         <Footer />

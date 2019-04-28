@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Route, Link } from 'react-router-dom';
+
 import Settings from '../Settings';
 
 class Deck extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phrases: [],
+      phrases: []
     };
   }
 
@@ -21,27 +23,34 @@ class Deck extends Component {
   }
 
   render() {
+    let badgeClass = function(status) {
+      let res = "badge badge-";
+      if (status === 'active')
+        res += 'success';
+      else
+        res += 'info';
+      return res;
+    }
     return (
-      <div className="container py-3">
+      <div className="container p-3">
         <h2>Your {this.props.language} Deck</h2>
-        <div className="row">
+        <div className="row p-3">
           {this.state.phrases.map(phrase =>
-          <div className="col col-md-4" key={phrase.id}>
-            <div className="card mb-4 shadow-sm">
-              <div className="card-body">
-                <p className="card-text">{phrase.fields.text}</p>
-                <p className="card-text text-muted">{phrase.fields.translation_texts}</p>
-                <div className="d-flex justify-content-between align-items-center">
-                  <div className="btn-group">
-                    <button type="button" className="btn btn-sm btn-outline-secondary">Skip</button>
-                    <button type="button" className="btn btn-sm btn-outline-secondary">Learn it!</button>
-                    <button type="button" className="btn btn-sm btn-outline-secondary">Learned</button>
-                  </div>
-                  <small className="text-muted">{phrase.fields.language_name}</small>
-                </div>
+          <div className="card w-100 shadow-sm mb-3 d-flex justify-content-between" key={phrase.id}>
+            <div className="card-body">
+              <p className="card-text float-left mb-0">
+                <span className={badgeClass(phrase.fields.status)}>{phrase.fields.status}</span>
+                <span> {phrase.fields.text}</span>
+              </p>
+              <div className="btn-group float-right">
+                <Link className="btn btn-sm btn-outline-secondary"
+                    to={'/deck/' + this.props.language + '/card/' + phrase.id}>
+                  Show
+                </Link>
               </div>
             </div>
-          </div>)}
+          </div>
+          )}
         </div>
       </div>
     );
