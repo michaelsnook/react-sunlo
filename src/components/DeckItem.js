@@ -64,16 +64,23 @@ class DeckItem extends Component {
               close_text="Close (go back)"
               closeModal={this.closeModal}
               >
-            <div className="modal-header">
+            <div className="modal-header bg-primary text-white">
               <h3 className="modal-title">
                 {this.state.phrase.fields.text}
               </h3>
             </div>
             <div className="modal-body">
               <p>translations:</p>
-              <ul>
-                {this.state.translations.map(t => (<li key={t.id}>{t.fields.text}</li>))}
-              </ul>
+
+                {this.state.translations.map(t => (
+                  <blockquote className="blockquote border-left pl-3" key={t.id}>
+                    <p className="mb-0">{t.fields.text}</p>
+                    { t.fields.language_name?
+                    <span className="text-muted small">{t.fields.language_name}</span>
+                    : <></> }
+                  </blockquote>
+                ))}
+
             </div>
           </Modal>
           :
