@@ -72,17 +72,16 @@ class DeckItem extends Component {
             </div>
             <div className="modal-body overflow-auto">
               <p>translations:</p>
-
-                {this.state.translations.map(t => (
-                  <blockquote className="blockquote border-left pl-3" key={t.id}>
-                    <p className="mb-0">{t.fields.text}</p>
-                    { t.fields.language_name?
-                    <span className="text-muted small">{t.fields.language_name}</span>
-                    : <></> }
-                  </blockquote>
-                ))}
-
+              {this.state.translations.map(t => (
+                <blockquote className="blockquote border-left pl-3" key={t.id}>
+                  <p className="mb-0">{t.fields.text}</p>
+                  { t.fields.language_name?
+                  <span className="text-muted small">{t.fields.language_name}</span>
+                  : <></> }
+                </blockquote>
+              ))}
             </div>
+
             <div className="btn-group p-3 btn-group-toggle" data-toggle="buttons">
               <button onClick={() => this.setState({status: 'learned'})} className={`btn ${this.state.status === 'learned' ? 'btn-success' : 'btn-outline-success'}`}>
                 Done!
