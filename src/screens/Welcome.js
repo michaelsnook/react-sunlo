@@ -16,6 +16,10 @@ class Welcome extends Component {
           <div className="row">
             <div className="col">
               <h1>Sunlo is a social<br />language learning app</h1>
+              <p><em>
+                NB: This version of the app is just a prototype. Everything is
+                read-only and for demo purposes only.
+              </em></p>
               <p>Create your own flash cards, or pick from a crowd-sourced pool.</p>
               <p>The phrase-based approach is meant for people who are immersed enough
               in the new language that you have friends, colleagues, and family who can
@@ -35,6 +39,7 @@ class Welcome extends Component {
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item"><Link to={`/profile`}>A sample profile</Link></li>
                   <li className="list-group-item"><Link to={`/deck/Hindi`}>A Hindi deck</Link></li>
+                  <li className="list-group-item"><Link to={`/browse/Hindi`}>Browse new Hindi phrases</Link></li>
                 </ul>
               </div>
             </div>
