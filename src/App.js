@@ -8,7 +8,6 @@ import Browse from './screens/Browse';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import CardShowModal from './components/CardShowModal';
 
 class App extends Component {
   render() {
@@ -25,9 +24,6 @@ class App extends Component {
           )} />
           <Route path="/deck/:language" render={({match}) => (
             <Deck language={match.params.language} />
-          )} />
-          <Route path={`/deck/:language/card/:uuid`} render={({match}) => (
-            <CardShowModal uuid={match.params.uuid} back_url={"/deck/" + match.params.language} />
           )} />
         </main>
         <Footer />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Route, Link } from 'react-router-dom';
+
+import DeckItem from '../components/DeckItem';
 
 import Settings from '../Settings';
 
@@ -27,22 +28,9 @@ class Deck extends Component {
       <div className="container p-3">
         <h2>Your {this.props.language} Deck</h2>
         <div className="row p-3">
-          {this.state.phrases.map(phrase =>
-          <div className="card w-100 shadow-sm mb-3 d-flex justify-content-between" key={phrase.id}>
-            <div className="card-body">
-              <p className="card-text float-left mb-0">
-                <span className={`badge badge-${phrase.fields.status === 'active'? 'success':'info'}`}>{phrase.fields.status}</span>
-                <span> {phrase.fields.text}</span>
-              </p>
-              <div className="btn-group float-right">
-                <Link className="btn btn-sm btn-outline-secondary"
-                    to={'/deck/' + this.props.language + '/card/' + phrase.id}>
-                  Show
-                </Link>
-              </div>
-            </div>
-          </div>
-          )}
+        {this.state.phrases.map(phrase =>
+          <DeckItem key={phrase.id} phrase={phrase} />
+        )}
         </div>
       </div>
     );

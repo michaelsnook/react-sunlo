@@ -2,29 +2,60 @@ import React, { Component } from 'react';
 import { BrowserRouter as Route, Link } from 'react-router-dom';
 
 class Modal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: true,
+    };
+  }
+
+  toggleModal = (e) => {
+    this.setState(state => ({
+      open: !this.state.open
+    }));
+    this.props.toggleModal();
+    e.preventDefault();
+  }
+
+  closeModal = () => {
+    this.setState(state => ({
+      open: false
+    }));
+    setTimeout(() => {
+      this.props.closeModal();
+    }, 300);
+
+  }
+
+/*
+ *  componentWillMount() {
+ *    // manage URL to new unique URL for this item
+ *  }
+ *
+ *  componentWillUnmount() {
+ *    // switch location back to previous screen
+ *  }
+ */
+
   render() {
     return (
       <>
-        <div className="modal fade show d-flex" tabIndex="-1" role="dialog" aria-hidden="false">
+        <div className={`modal fade d-flex ${this.state.open? 'show': ''}`} tabIndex="-1" role="dialog" aria-hidden={!this.state.open}>
           <div className="modal-dialog shadow-sm d-flex flex-fill" role="document">
             <div className="modal-content">
 
               {this.props.children}
 
-              {this.props.close_text &&
               <div className="modal-footer">
-                <Link to={this.props.back_url} role="Button" type="Buton"
+                <button onClick={this.closeModal} type="Buton"
                     className="btn btn-secondary btn-block">
-                  {this.props.close_text}
-                </Link>
+                  {this.props.close_text || 'Close'}
+                </button>
               </div>
-              }
             </div>
           </div>
         </div>
-        <Link to={this.props.back_url}>
-          <div className="modal-backdrop fade show"></div>
-        </Link>
+        <div className={`modal-backdrop fade ${this.state.open? 'show':''}`}></div>
       </>
     );
   }

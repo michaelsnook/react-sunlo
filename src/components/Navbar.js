@@ -30,7 +30,7 @@ class Navbar extends Component {
             <a className="navbar-brand" href="/" onClick={this.toggleShow}
               data-toggle="collapse"
               aria-controls="navbarNavAltMarkup"
-              aria-expanded={`${this.state.open}`}
+              aria-expanded={this.state.open}
               aria-label={`Menu ${this.state.open? 'close' : 'open'}`}
             >
               <button className="navbar-toggler" type="button">
