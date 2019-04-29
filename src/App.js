@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Welcome from './screens/Welcome';
+import About from './screens/About';
 import Profile from './screens/Profile';
 import Deck from './screens/Deck';
 import Browse from './screens/Browse';
@@ -25,6 +26,7 @@ class App extends Component {
           <Route path="/deck/:language" render={({match}) => (
             <Deck language={match.params.language} />
           )} />
+          <Route path="/about" component={About} />
         </main>
         <Footer />
       </Router>

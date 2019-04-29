@@ -52,6 +52,9 @@ class Navbar extends Component {
                 <Link onClick={this.closeNav} to={`/browse/Hindi`} className="nav-item nav-link">
                   <i className="fas fa-database col-2"></i> Browe Hindi phrases
                 </Link>
+                <Link onClick={this.closeNav} to={`/about`} className="nav-item nav-link d-md-none">
+                  <i className="fas fa-info-circle col-2"></i> About Sunlo
+                </Link>
               </div>
             </div>
           </nav>
