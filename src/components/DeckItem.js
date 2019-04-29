@@ -9,7 +9,8 @@ class DeckItem extends Component {
     this.state = {
       phrase: this.props.phrase,
       open: this.props.open || false,
-      translations: []
+      translations: [],
+      status: this.props.phrase.fields.status
     };
   }
 
@@ -34,9 +35,9 @@ class DeckItem extends Component {
       .then((resp) => resp.json())
       .then(data => {
         console.log(data);
-        this.setState(state => ({
+        this.setState({
           translations: data.records
-        }))
+        })
       })
       .catch(err => {
         // Error 🙁
@@ -48,7 +49,7 @@ class DeckItem extends Component {
       <div className="card w-100 shadow-sm mb-3 d-flex justify-content-between">
         <div className="card-body">
           <p className="card-text float-left mb-0">
-            <span className={`badge badge-${this.state.phrase.fields.status === 'active'? 'success':'info'}`}>{this.state.phrase.fields.status}</span>
+            <span className={`badge badge-${this.state.status === 'active'? 'primary': this.state.status === 'learned' ? 'success' : 'danger'}`}>{this.state.status}</span>
             <span> {this.state.phrase.fields.text}</span>
           </p>
           <div className="btn-group float-right">
@@ -69,7 +70,7 @@ class DeckItem extends Component {
                 {this.state.phrase.fields.text}
               </h3>
             </div>
-            <div className="modal-body">
+            <div className="modal-body overflow-auto">
               <p>translations:</p>
 
                 {this.state.translations.map(t => (
@@ -81,6 +82,17 @@ class DeckItem extends Component {
                   </blockquote>
                 ))}
 
+            </div>
+            <div className="btn-group p-3 btn-group-toggle" data-toggle="buttons">
+              <button onClick={() => this.setState({status: 'learned'})} className={`btn ${this.state.status === 'learned' ? 'btn-success' : 'btn-outline-success'}`}>
+                Done!
+              </button>
+              <button onClick={() => this.setState({status: 'active'})} className={`btn ${this.state.status === 'active' ? 'btn-primary' : 'btn-outline-primary'}`}>
+                Learning
+              </button>
+              <button onClick={() => this.setState({status: 'rejected'})} className={`btn ${this.state.status === 'rejected' ? 'btn-danger' : 'btn-outline-danger'}`}>
+                Dismiss
+              </button>
             </div>
           </Modal>
           :
