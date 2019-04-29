@@ -7,9 +7,10 @@ class CardShowModal extends Component {
     super(props);
     this.state = {
       phrase: {
-        fields: {}
-      },
-      translations: []
+        fields: {
+          translations: []
+        }
+      }
     };
   }
 
@@ -38,8 +39,11 @@ class CardShowModal extends Component {
             </h3>
           </div>
           <div className="modal-body">
-            <p>showing card modal {this.props.uuid}</p>
-            <p>text: {this.state.phrase.fields.text}</p>
+            <p>translations: {this.state.phrase.fields.translation_texts}</p>
+            <p>translation IDs:</p>
+            <ul>
+              {this.state.phrase.fields.translations.map(t => <li key={t}>{t}</li>)}
+            </ul>
           </div>
       </Modal>
     );
