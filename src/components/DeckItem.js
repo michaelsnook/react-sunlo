@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+
 import Modal from './Modal';
+import Settings from '../Settings';
 
 class DeckItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
       phrase: this.props.phrase,
-      open: this.props.open || false
+      open: this.props.open || false,
+      translations: []
     };
   }
 
@@ -25,23 +28,20 @@ class DeckItem extends Component {
     }));
     // e.preventDefault();
   }
-/*
- *  TODO: rewrite this to fetch all the Translations instead, and only when called
- *
- *  componentDidMount() {
- *    fetch(`${Settings.API_URL}Phrases/${this.props.uuid}?api_key=${Settings.API_KEY}`)
- *      .then((resp) => resp.json())
- *      .then(data => {
- *        console.log(data);
- *        this.setState(state => ({
- *          phrase: data
- *        }))
- *      })
- *      .catch(err => {
- *        // Error 🙁
- *      });
- *  }
- */
+
+  componentDidMount() {
+    fetch(`${Settings.API_URL}Translations/?api_key=${Settings.API_KEY}&filterByFormula=%7Bphrase_id%7D%3D%22${this.props.phrase.fields.id}%22`)
+      .then((resp) => resp.json())
+      .then(data => {
+        console.log(data);
+        this.setState(state => ({
+          translations: data.records
+        }))
+      })
+      .catch(err => {
+        // Error 🙁
+      });
+  }
 
   render() {
     return (
@@ -70,10 +70,9 @@ class DeckItem extends Component {
               </h3>
             </div>
             <div className="modal-body">
-              <p>translations: {this.state.phrase.fields.translation_texts}</p>
-              <p>translation IDs:</p>
+              <p>translations:</p>
               <ul>
-                {this.state.phrase.fields.translations.map(t => <li key={t}>{t}</li>)}
+                {this.state.translations.map(t => (<li key={t.id}>{t.fields.text}</li>))}
               </ul>
             </div>
           </Modal>
