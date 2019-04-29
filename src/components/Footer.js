@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Footer = () => (
-  <footer className="bg-dark text-white p-md-5 p-3">
+  <footer className="bg-dark text-white p-md-5 p-3 d-none d-md-block">
     <div className="container">
       <p>
         Found a bug? Looking for a new feature? Want to help set priorities
