@@ -28,7 +28,9 @@ class Deck extends Component {
       <div className="container p-3">
         <h2>Your {this.props.language} Deck</h2>
         <div className="row p-3">
-        {this.state.phrases.map(phrase =>
+        {this.state.phrases.sort((a, b) => {
+          return (a.fields.status < b.fields.status) ? -1 : 1
+        }).map(phrase =>
           <DeckItem key={phrase.id} phrase={phrase} />
         )}
         </div>
