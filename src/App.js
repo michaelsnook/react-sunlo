@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-        <main>
+        <main className="d-flex">
           <Route exact path="/" component={Welcome} />
           <Route exact path="/profile" render={ () => (
             <Profile uuid="recPcm2lXVMX9GVjF" />

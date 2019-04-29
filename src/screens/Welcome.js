@@ -11,7 +11,7 @@ class Welcome extends Component {
 
   render() {
     return (
-      <div className="bg-primary w-100 text-light">
+      <div className="bg-primary w-100 text-light d-flex align-items-center">
         <div className="container pt-3 pb-5">
           <div className="row">
             <div className="col">
@@ -22,7 +22,7 @@ class Welcome extends Component {
               help you learn new words and phrases that are useful from day one.</p>
               <p>
                 (This is not a company, just an app. It's open source and free to use.
-                If you like to code and want to help,
+                If you like to code and want to help,&nbsp;
                 <Link className="text-white font-weight-bold" to="//github.com/michaelsnook/react-sunlo">
                 come have a look</Link>.)
               </p>
