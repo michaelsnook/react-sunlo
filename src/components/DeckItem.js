@@ -10,7 +10,9 @@ class DeckItem extends Component {
       phrase: this.props.phrase,
       open: this.props.open || false,
       translations: [],
-      status: this.props.phrase.fields.status
+      status: this.props.phrase.fields.status,
+      open_pronounce: false,
+      encoded_whatsapp_message: encodeURIComponent(`Hey friend, how do I pronounce this phrase: "${this.props.phrase.fields.text}"? send me a voice message back / thanks :)`)
     };
   }
 
@@ -28,6 +30,13 @@ class DeckItem extends Component {
       open: false
     }));
     // e.preventDefault();
+  }
+
+  openPronounce = (e) => {
+    console.log('opening pronounce guide');
+    this.setState(state => ({
+      open_pronounce: true
+    }));
   }
 
   componentDidMount() {
@@ -65,13 +74,15 @@ class DeckItem extends Component {
               close_text="Close (go back)"
               closeModal={this.closeModal}
               >
+
             <div className="modal-header bg-primary text-white">
               <h3 className="modal-title">
                 {this.state.phrase.fields.text}
               </h3>
             </div>
+
             <div className="modal-body overflow-auto">
-              <p>translations:</p>
+              <p>Translations:</p>
               {this.state.translations.map(t => (
                 <blockquote className="blockquote border-left pl-3" key={t.id}>
                   <p className="mb-0">{t.fields.text}</p>
@@ -80,6 +91,29 @@ class DeckItem extends Component {
                   : <></> }
                 </blockquote>
               ))}
+
+              <p>
+                <button onClick={this.openPronounce} className="btn btn-link px-0">
+                  <i className="fas fa-volume-up"></i> Pronunciation
+                </button>
+              </p>
+              { this.state.open_pronounce?
+              <>
+                <p>
+                  <i className="far fa-hand-paper"></i>&nbsp;
+                  Sunlo is a tool for <em>social language learning</em> –
+                  so go ask one of your {this.props.phrase.fields.language_name}-speaking friends how to
+                  pronounce this phrase.&nbsp;
+                  <i className="far fa-comments"></i>
+                </p>
+                <a href={`whatsapp://send?text=${this.state.encoded_whatsapp_message}`}
+                    className="btn btn-outline-secondary m-y-1">
+                  <i className="fab fa-whatsapp"></i> Ask on WhatsApp
+                </a>
+              </>
+              :
+              <></>
+              }
             </div>
 
             <div className="btn-group p-3 btn-group-toggle" data-toggle="buttons">
@@ -93,6 +127,7 @@ class DeckItem extends Component {
                 Dismiss
               </button>
             </div>
+
           </Modal>
           :
           <></>
