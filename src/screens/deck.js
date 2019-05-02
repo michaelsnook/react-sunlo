@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-import DeckItem from '../components/DeckItem';
-
-import Settings from '../Settings';
+import Settings from '../settings';
+import DeckItem from '../components/deck-item';
 
 class Deck extends Component {
   constructor(props) {

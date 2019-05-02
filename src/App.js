@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Welcome from './screens/Welcome';
-import About from './screens/About';
-import Profile from './screens/Profile';
-import Deck from './screens/Deck';
-import Browse from './screens/Browse';
+import Welcome from './screens/welcome';
+import About from './screens/about';
+import Profile from './screens/profile';
+import Deck from './screens/deck';
+import Browse from './screens/browse';
+import Navbar from './components/navbar';
+import Footer from './components/footer';
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 
 class App extends Component {
   render() {

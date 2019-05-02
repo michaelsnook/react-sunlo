@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Settings from '../Settings';
+
+import Settings from '../settings';
 
 class CardList extends Component {
   constructor(props) {

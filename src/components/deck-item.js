@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Modal from './Modal';
-import Settings from '../Settings';
+import Settings from '../settings';
+import Modal from './modal';
 
 class DeckItem extends Component {
   constructor(props) {

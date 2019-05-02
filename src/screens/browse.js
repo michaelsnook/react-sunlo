@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Settings from '../Settings';
+
+import Settings from '../settings';
 
 class Browse extends Component {
   constructor(props) {
