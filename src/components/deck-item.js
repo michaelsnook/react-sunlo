@@ -92,8 +92,8 @@ class DeckItem extends Component {
                 </blockquote>
               ))}
 
-              <p>
-                <button onClick={this.openPronounce} className="btn btn-link px-0">
+              <p className="mb-0">
+                <button onClick={this.openPronounce} className={`btn btn-link px-0 ${this.state.open_pronounce? 'text-muted' : ''}`}>
                   <i className="fas fa-volume-up"></i> Pronunciation
                 </button>
               </p>
