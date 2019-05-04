@@ -11,8 +11,7 @@ class DeckItem extends Component {
       open: this.props.open || false,
       translations: null,
       status: this.props.phrase.fields.status,
-      open_pronounce: false,
-      encoded_whatsapp_message: encodeURIComponent(`Hey friend, how do I pronounce this phrase: "${this.props.phrase.fields.text}"? send me a voice message back / thanks :)`)
+      open_pronounce: false
     };
   }
 
@@ -54,6 +53,11 @@ class DeckItem extends Component {
     this.setState(state => ({
       open_pronounce: true
     }));
+  }
+
+  encodedWhatsappMessage() {
+    return encodeURIComponent(`Hey friend, how do I pronounce this phrase: "${this.props.phrase.fields.text}"?`
+        + ` send me a voice message back / thanks :)`);
   }
 
   componentDidMount() {
@@ -113,7 +117,7 @@ class DeckItem extends Component {
                   pronounce this phrase.&nbsp;
                   <i className="far fa-comments"></i>
                 </p>
-                <a href={`whatsapp://send?text=${this.state.encoded_whatsapp_message}`}
+                <a href={`whatsapp://send?text=${this.encodedWhatsappMessage()}`}
                     className="btn btn-outline-secondary m-y-1">
                   <i className="fab fa-whatsapp"></i> Ask on WhatsApp
                 </a>
