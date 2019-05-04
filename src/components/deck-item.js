@@ -9,11 +9,25 @@ class DeckItem extends Component {
     this.state = {
       phrase: this.props.phrase,
       open: this.props.open || false,
-      translations: [],
+      translations: null,
       status: this.props.phrase.fields.status,
       open_pronounce: false,
       encoded_whatsapp_message: encodeURIComponent(`Hey friend, how do I pronounce this phrase: "${this.props.phrase.fields.text}"? send me a voice message back / thanks :)`)
     };
+  }
+
+  fetchTranslations = () => {
+    fetch(`${Settings.API_URL}Translations/?api_key=${Settings.API_KEY}&filterByFormula=%7Bphrase_id%7D%3D%22${this.props.phrase.fields.id}%22`)
+      .then((resp) => resp.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          translations: data.records
+        })
+      })
+      .catch(err => {
+        // Error 🙁
+      });
   }
 
   toggleModal = (e) => {
@@ -21,6 +35,9 @@ class DeckItem extends Component {
     this.setState(state => ({
       open: !this.state.open
     }));
+    if (this.state.open && this.state.translations === null) {
+      this.fetchTranslations();
+    }
     e.preventDefault();
   }
 
@@ -40,17 +57,7 @@ class DeckItem extends Component {
   }
 
   componentDidMount() {
-    fetch(`${Settings.API_URL}Translations/?api_key=${Settings.API_KEY}&filterByFormula=%7Bphrase_id%7D%3D%22${this.props.phrase.fields.id}%22`)
-      .then((resp) => resp.json())
-      .then(data => {
-        console.log(data);
-        this.setState({
-          translations: data.records
-        })
-      })
-      .catch(err => {
-        // Error 🙁
-      });
+    this.fetchTranslations();
   }
 
   render() {
