@@ -8,7 +8,8 @@ class DeckItem extends Component {
     super(props);
     this.state = {
       open: false,
-      translations: null,
+      translations: [],
+      translations_loaded_once: false,
       open_pronounce: false,
     };
   }
@@ -19,7 +20,8 @@ class DeckItem extends Component {
       .then(data => {
         console.log(data);
         this.setState({
-          translations: data.records
+          translations: data.records,
+          translations_loaded_once: true,
         })
       })
       .catch(err => {
@@ -29,10 +31,8 @@ class DeckItem extends Component {
 
   toggleModal = (e) => {
     console.log('toggling DeckItem modal')
-    this.setState(state => ({
-      open: !this.state.open
-    }));
-    if (this.state.open && this.state.translations === null) {
+    this.setState({ open: !this.state.open });
+    if (this.state.open && this.state.translations_loaded_once === false) {
       this.fetchTranslations();
     }
     e.preventDefault();
@@ -40,17 +40,13 @@ class DeckItem extends Component {
 
   closeModal = (e) => {
     console.log('closing DeckItem modal');
-    this.setState(state => ({
-      open: false
-    }));
+    this.setState({ open: false });
     // e.preventDefault();
   }
 
   openPronounce = (e) => {
     console.log('opening pronounce guide');
-    this.setState(state => ({
-      open_pronounce: true
-    }));
+    this.setState({ open_pronounce: true });
   }
 
   encodedWhatsappMessage() {
@@ -92,6 +88,7 @@ class DeckItem extends Component {
             </div>
 
             <div className="modal-body overflow-auto">
+
               <p>Translations:</p>
               {this.state.translations.map(t => (
                 <blockquote className="blockquote border-left pl-3" key={t.id}>
