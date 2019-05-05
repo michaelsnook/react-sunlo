@@ -26,17 +26,6 @@ class Deck extends Component {
       });
   }
 
-  addANode = (e) => {
-    console.log(e, this);
-    let phrases = this.state.phrases;
-    let phrase = phrases['rec7g7UeW1THoQDoK'];
-    phrases[1] = phrase;
-    this.setState({phrases: phrases});
-    console.log('pushed');
-    console.log(this);
-    e.preventDefault();
-  }
-
   handleStatusChange(uuid, status) {
     var phrases = {...this.state.phrases}
     console.log('state', this.state.phrases[uuid]);
@@ -50,7 +39,6 @@ class Deck extends Component {
     return (
       <div className="container p-3">
         <h2>Your {this.props.language} Deck</h2>
-        <button onClick={this.addANode}>Arbitrarily add a node to the dom</button>
         <div className="row p-3">
         {Object.keys(this.state.phrases).map(uuid => {
           const phrase = this.state.phrases[uuid];
