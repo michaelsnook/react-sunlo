@@ -7,7 +7,7 @@ class Deck extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phrases: {}
+      phrases: {},
     };
   }
 
@@ -17,28 +17,52 @@ class Deck extends Component {
       .then((resp) => resp.json())
       .then(data => {
         let phrases = {};
+        window.records = data.records;
         data.records.map(p => { phrases[p.id] = p })
         this.setState({ phrases: phrases })
+        window.phrases = this.state.phrases;
       }).catch(err => {
         // Error 🙁
       });
   }
 
-  renderPhrases() {
-    let items = [];
-    for (let key in this.state.phrases) {
-      const phrase = this.state.phrases[key];
-      items.push(<DeckItem key={`deck-item-${key}`} phrase={phrase} />)
-    }
-    return items;
+  addANode = (e) => {
+    console.log(e, this);
+    let phrases = this.state.phrases;
+    let phrase = phrases['rec7g7UeW1THoQDoK'];
+    phrases[1] = phrase;
+    this.setState({phrases: phrases});
+    console.log('pushed');
+    console.log(this);
+    e.preventDefault();
+  }
+
+  handleStatusChange(uuid, status) {
+    var phrases = {...this.state.phrases}
+    console.log('state', this.state.phrases[uuid]);
+    phrases[uuid].fields.status = status;
+    console.log('new', phrases[uuid]);
+    this.setState({phrases: phrases});
+    console.log('update');
   }
 
   render() {
     return (
       <div className="container p-3">
         <h2>Your {this.props.language} Deck</h2>
+        <button onClick={this.addANode}>Arbitrarily add a node to the dom</button>
         <div className="row p-3">
-        {this.renderPhrases()}
+        {Object.keys(this.state.phrases).map(uuid => {
+          const phrase = this.state.phrases[uuid];
+          return (
+            <DeckItem {...phrase} uuid={uuid}
+              onMarkLearned={() => this.handleStatusChange(uuid, 'learned')}
+              onMarkActive={() => this.handleStatusChange(uuid, 'active')}
+              onMarkRejected={() => this.handleStatusChange(uuid, 'rejected')}
+              key={`deck-item-${uuid}`}
+            />
+          )
+        })}
         </div>
       </div>
     );
