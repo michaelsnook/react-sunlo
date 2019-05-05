@@ -12,7 +12,7 @@ class Browse extends Component {
 
   componentDidMount() {
     fetch(Settings.API_URL + 'Phrases?api_key=' + Settings.API_KEY
-        +'&view=browse_' + this.props.language.toLowerCase())
+        + '&view=browse_' + this.props.language)
       .then((resp) => resp.json())
       .then(data => {
         this.setState({ phrases: data.records })

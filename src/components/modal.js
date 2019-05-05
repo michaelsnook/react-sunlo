@@ -27,7 +27,7 @@ class Modal extends Component {
               {this.props.children}
 
               <div onClick={this.closeModal} className="modal-footer bg-dark text-white">
-                <button type="Buton"
+                <button type="Button"
                     className="btn btn-dark btn-block">
                   {this.props.close_text || 'Close'}
                 </button>
