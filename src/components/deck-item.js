@@ -79,6 +79,7 @@ class DeckItem extends Component {
               back_url={'/deck/' + this.props.fields.language_name}
               close_text="Close (go back)"
               closeModal={this.closeModal}
+              open={this.state.open}
           >
 
             <div className="modal-header bg-primary text-white">

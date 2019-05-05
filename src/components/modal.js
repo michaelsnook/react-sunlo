@@ -4,16 +4,8 @@ class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: true,
+      open: this.props.open,
     };
-  }
-
-  toggleModal = (e) => {
-    this.setState(state => ({
-      open: !this.state.open
-    }));
-    this.props.toggleModal();
-    e.preventDefault();
   }
 
   closeModal = () => {
@@ -23,18 +15,7 @@ class Modal extends Component {
     setTimeout(() => {
       this.props.closeModal();
     }, 300);
-
   }
-
-/*
- *  componentWillMount() {
- *    // manage URL to new unique URL for this item
- *  }
- *
- *  componentWillUnmount() {
- *    // switch location back to previous screen
- *  }
- */
 
   render() {
     return (
