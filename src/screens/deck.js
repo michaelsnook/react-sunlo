@@ -13,7 +13,7 @@ class Deck extends Component {
 
   componentDidMount() {
     fetch(Settings.API_URL + 'Phrases?api_key=' + Settings.API_KEY
-        + '&view=deck_' + this.props.language.toLowerCase())
+        + '&view=deck_' + this.props.language)
       .then((resp) => resp.json())
       .then(data => {
         let phrases = {};
