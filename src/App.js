@@ -5,6 +5,7 @@ import Welcome from './screens/welcome';
 import About from './screens/about';
 import Profile from './screens/profile';
 import Deck from './screens/deck';
+import Discover from './screens/discover';
 import Browse from './screens/browse';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
@@ -25,6 +26,9 @@ class App extends Component {
           )} />
           <Route path="/deck/:language" render={({match}) => (
             <Deck language={match.params.language} />
+          )} />
+          <Route path="/discover/:language" render={({match}) => (
+            <Discover language={match.params.language} />
           )} />
           <Route path="/about" component={About} />
         </main>

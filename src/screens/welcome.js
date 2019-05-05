@@ -39,6 +39,7 @@ class Welcome extends Component {
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item"><Link to={`/profile`}>A sample profile</Link></li>
                   <li className="list-group-item"><Link to={`/deck/Hindi`}>A Hindi deck</Link></li>
+                  <li className="list-group-item"><Link to={`/discover/Hindi`}>Discover Hindi phrases</Link></li>
                   <li className="list-group-item"><Link to={`/browse/Hindi`}>Browse new Hindi phrases</Link></li>
                 </ul>
               </div>

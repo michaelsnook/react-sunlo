@@ -49,6 +49,9 @@ class Navbar extends Component {
                 <Link onClick={this.closeNav} to={`/deck/Hindi`} className="nav-item nav-link">
                   <i className="fas fa-database col-2"></i> Your Hindi deck
                 </Link>
+                <Link onClick={this.closeNav} to={`/discover/Hindi`} className="nav-item nav-link">
+                  <i className="fas fa-compass col-2"></i> Discover Hindi phrases
+                </Link>
                 <Link onClick={this.closeNav} to={`/browse/Hindi`} className="nav-item nav-link">
                   <i className="fas fa-database col-2"></i> Browse Hindi phrases
                 </Link>
