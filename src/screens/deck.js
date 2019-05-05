@@ -24,7 +24,7 @@ class Deck extends Component {
       });
   }
 
-  drawPhrases() {
+  renderPhrases() {
     let items = [];
     for (let key in this.state.phrases) {
       const phrase = this.state.phrases[key];
@@ -38,7 +38,7 @@ class Deck extends Component {
       <div className="container p-3">
         <h2>Your {this.props.language} Deck</h2>
         <div className="row p-3">
-        {this.drawPhrases()}
+        {this.renderPhrases()}
         </div>
       </div>
     );
