@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Settings from '../settings';
 
 import AddPhraseButton from '../components/add-phrase-button';
-import Modal from '../components/modal';
+import DiscoverItem from '../components/discover-item';
 
 class Discover extends Component {
   constructor(props) {
@@ -19,23 +19,31 @@ class Discover extends Component {
       .then((resp) => resp.json())
       .then(data => {
         this.setState({ phrases: data.records });
-      }).catch(err => {
+      })
+      .then(() => this.showNextCard())
+      .catch(err => {
         // Error 🙁
       });
   }
 
   render() {
     return (
-      <div className="container p-3 d-flex text-center align-items-center">
-        <div className="row">
-          <div className="col-12">
-            <h1 className="text-muted">It looks like you're all out of new phrases to learn.</h1>
-          </div>
-          <div className="col-12 pt-3">
-            <AddPhraseButton />
+      <>
+        <div className="container p-3 d-flex text-center align-items-center">
+          <div className="row">
+            <div className="col-12">
+              <h1 className="text-muted">It looks like you're all out of new phrases to learn.</h1>
+            </div>
+            <div className="col-12 pt-3">
+              <AddPhraseButton />
+            </div>
           </div>
         </div>
-      </div>
+
+        {this.state.phrases.map(phrase => (
+          <DiscoverItem open={true} {...phrase} key={`discover-item-${phrase.id}`} />
+        ))}
+      </>
     )
   }
 }
