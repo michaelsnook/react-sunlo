@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import Settings from '../settings';
 
 import AddPhraseButton from '../components/add-phrase-button';
+import Modal from '../components/modal';
 
 class Discover extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phrases: []
+      phrases: [],
     }
   }
 

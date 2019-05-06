@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Route, Link } from 'react-router-dom';
 
 class Welcome extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      //
-    };
-  }
-
   render() {
     return (
       <div className="bg-primary w-100 text-light d-flex align-items-center">

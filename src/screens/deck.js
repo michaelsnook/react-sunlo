@@ -18,7 +18,7 @@ class Deck extends Component {
       .then(data => {
         let phrases = {};
         window.records = data.records;
-        data.records.map(p => { phrases[p.id] = p })
+        data.records.map(p => { phrases[p.id] = p; return true })
         this.setState({ phrases: phrases })
         window.phrases = this.state.phrases;
       }).catch(err => {
