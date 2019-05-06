@@ -42,8 +42,8 @@ class DiscoverItem extends Component {
     return (
       <Modal key={`discover-modal-${this.props.id}`}
         title={this.props.fields.text}
-        open={this.props.open}
-        closeModal={() => this.closeModal()}
+        open={this.state.open}
+        closeModal={this.closeModal}
       >
         <div className="modal-header bg-primary text-white">
           <h3 className="modal-title">
@@ -60,6 +60,13 @@ class DiscoverItem extends Component {
               : <></> }
             </blockquote>
           ))}
+
+
+        </div>
+
+        <div className="w-100 px-3 btn-group mx-auto d-flex align-items-cener">
+          <button onClick={this.closeModal} className="py-4 btn btn-outline-success btn-lg h3" role="alert">Learn it</button>
+          <button onClick={this.closeModal} className="py-4 btn btn-outline-danger btn-lg h3" role="alert">Skip it</button>
         </div>
       </Modal>
 
