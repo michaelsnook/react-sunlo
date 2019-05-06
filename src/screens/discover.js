@@ -1,7 +1,28 @@
 import React, { Component } from 'react';
+
+import Settings from '../settings';
+
 import AddPhraseButton from '../components/add-phrase-button';
 
 class Discover extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      phrases: []
+    }
+  }
+
+  componentDidMount() {
+    fetch(Settings.API_URL + 'Phrases?api_key=' + Settings.API_KEY
+        + '&view=discover_' + this.props.language)
+      .then((resp) => resp.json())
+      .then(data => {
+        this.setState({ phrases: data.records });
+      }).catch(err => {
+        // Error 🙁
+      });
+  }
+
   render() {
     return (
       <div className="container p-3 d-flex text-center align-items-center">

@@ -50,10 +50,10 @@ class Navbar extends Component {
                   <i className="fas fa-database col-2"></i> Your Hindi deck
                 </Link>
                 <Link onClick={this.closeNav} to={`/discover/Hindi`} className="nav-item nav-link">
-                  <i className="fas fa-compass col-2"></i> Discover Hindi phrases
+                  <i className="fas fa-compass col-2"></i> Discover new Hindi phrases
                 </Link>
                 <Link onClick={this.closeNav} to={`/browse/Hindi`} className="nav-item nav-link">
-                  <i className="fas fa-database col-2"></i> Browse Hindi phrases
+                  <i className="fas fa-th-list col-2"></i> Browse all Hindi phrases
                 </Link>
                 <Link onClick={this.closeNav} to={`/about`} className="nav-item nav-link d-md-none">
                   <i className="fas fa-info-circle col-2"></i> About Sunlo
