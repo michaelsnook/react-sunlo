@@ -65,8 +65,8 @@ class DiscoverItem extends Component {
         </div>
 
         <div className="w-100 px-3 mx-auto d-flex justify-content-around align-items-cener">
-          <button onClick={this.closeModal} className="btn btn-danger btn-lg h3 col-5" role="alert"><strong>Skip it</strong></button>
-          <button onClick={this.closeModal} className="btn btn-success btn-lg h3 col-5" role="alert"><strong>Learn it</strong></button>
+          <button onClick={this.closeModal} className="btn py-3 btn-danger btn-lg h3 col-5 mb-5" role="alert"><strong>Skip</strong></button>
+          <button onClick={this.closeModal} className="btn py-3 btn-success btn-lg h3 col-5 mb-5" role="alert"><strong>Learn</strong></button>
         </div>
       </Modal>
 
