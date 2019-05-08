@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 
 import Settings from '../settings';
 
-import Modal from './modal';
-
 class DiscoverItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: this.props.open,
+      open: true,
+      render: true,
       translations: [],
       translations_loaded_once: false,
     };
@@ -36,10 +35,12 @@ class DiscoverItem extends Component {
   closeModal = () => {
     console.log('close modal');
     this.setState({ open: false });
+    setTimeout(() => this.setState({ render: false }), 300);
+
   }
 
   render() {
-    return (
+    return (this.state.render &&
       <>
         <div className={`modal fade d-flex ${this.state.open? 'show': ''}`} tabIndex="-1" role="dialog" aria-hidden={!this.state.open}>
           <div className="modal-dialog shadow-sm d-flex flex-fill" role="document">
